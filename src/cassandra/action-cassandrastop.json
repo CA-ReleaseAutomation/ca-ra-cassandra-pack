@@ -1,0 +1,58 @@
+{
+   "SCRIPTAction" : {
+      "actionPack" : {
+         "name" : "Cassandra",
+         "category" : "Cassandra",
+         "description" : "Integration actions for the Cassandra NoSQL database.",
+         "author" : "CA Technologies",
+         "dependencies" : "",
+         "platform" : "Windows and Linux",
+         "version" : "0.1  ",
+         "license" : "",
+         "imageLocation" : "http://localhost:8080/RDKServer/workingDirectory/ActionPacks/cassandra/cassandra.jpg",
+         "lastModified" : "2014-11-05T13:46:24.319+05:30",
+         "tags" : [ ],
+         "packageName" : "cassandra"
+      },
+      "name" : "Cassandra - Stop",
+      "description" : "Stop the Cassandra database server.",
+      "outputParamList" : [ {
+         "name" : "Execution Output",
+         "type" : "String",
+         "description" : "Standard out from the command execution.",
+         "filterValue" : "[\\s\\S]*",
+         "filterType" : "REGEX",
+         "variableName" : "executionoutput",
+         "source" : "standardOut",
+         "arrayOption" : false
+      } ],
+      "successMessage" : "Execution succeeded.",
+      "type" : "SCRIPT",
+      "complete" : true,
+      "lastModified" : "2014-11-05T13:46:46.104+05:30",
+      "className" : "CassandraStop",
+      "packageName" : "com.ca.cassandra",
+      "shellType" : "DEFAULT_OS",
+      "scripts" : [ {
+         "content" : "",
+         "envVariables" : [ {
+         } ],
+         "execDir" : "",
+         "name" : "",
+         "osType" : "WINDOWS",
+         "overwriteOutput" : true,
+         "timeout" : 0,
+         "waitForProcess" : false
+      }, {
+         "content" : "sudo kill $(ps aux | grep 'cassandra' | awk '{print $2}')",
+         "envVariables" : [ {
+         } ],
+         "execDir" : "",
+         "name" : "CassandraStop1415175405917.sh",
+         "osType" : "LINUX",
+         "overwriteOutput" : true,
+         "timeout" : 0,
+         "waitForProcess" : true
+      } ]
+   }
+}

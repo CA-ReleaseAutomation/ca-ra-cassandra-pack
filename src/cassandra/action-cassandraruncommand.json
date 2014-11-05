@@ -1,0 +1,110 @@
+{
+   "SCRIPTAction" : {
+      "actionPack" : {
+         "name" : "Cassandra",
+         "category" : "Cassandra",
+         "description" : "Integration actions for the Cassandra NoSQL database.",
+         "author" : "CA Technologies",
+         "dependencies" : "",
+         "platform" : "Windows and Linux",
+         "version" : "0.1  ",
+         "license" : "",
+         "imageLocation" : "http://localhost:8080/RDKServer/workingDirectory/ActionPacks/cassandra/cassandra.jpg",
+         "lastModified" : "2014-11-05T13:46:24.319+05:30",
+         "tags" : [ ],
+         "packageName" : "cassandra"
+      },
+      "name" : "Cassandra - Run Command",
+      "description" : "Run a command on the Cassandra database.",
+      "inputParamList" : [ {
+         "name" : "Working Directory",
+         "type" : "String",
+         "description" : "The working directory for Cassandra.  This should be the same directory in which Cassandra was installed.",
+         "required" : false,
+         "variableName" : "workingdirectory",
+         "arrayOption" : false
+      }, {
+         "name" : "Username",
+         "type" : "String",
+         "description" : "The username to authenticate with the Cassandra Server.",
+         "required" : false,
+         "variableName" : "username",
+         "arrayOption" : false
+      }, {
+         "name" : "Password",
+         "type" : "String",
+         "description" : "The password to authenticate with the Cassandra Server.",
+         "required" : false,
+         "variableName" : "password",
+         "arrayOption" : false
+      }, {
+         "name" : "Host",
+         "type" : "String",
+         "description" : "The host running Cassandra that should be connected to.",
+         "required" : false,
+         "defaultValue" : "localhost",
+         "variableName" : "host",
+         "arrayOption" : false
+      }, {
+         "name" : "Port",
+         "type" : "Integer",
+         "description" : "The numeric port that Cassandra is running on.",
+         "required" : false,
+         "defaultValue" : "9160",
+         "variableName" : "port",
+         "arrayOption" : false
+      }, {
+         "name" : "File",
+         "type" : "String",
+         "description" : "The full path to the file which contains the command to be run on the Cassandra server.",
+         "required" : false,
+         "variableName" : "file",
+         "arrayOption" : false
+      }, {
+         "name" : "Keyspace",
+         "type" : "String",
+         "description" : "The name of the keyspace to use for this action.",
+         "required" : false,
+         "variableName" : "keyspace",
+         "arrayOption" : false
+      } ],
+      "outputParamList" : [ {
+         "name" : "Execution Output",
+         "type" : "String",
+         "description" : "Standard out from the command execution.",
+         "filterValue" : "[\\s\\S]*",
+         "filterType" : "REGEX",
+         "variableName" : "executionoutput",
+         "source" : "standardOut",
+         "arrayOption" : false
+      } ],
+      "successMessage" : "Execution succeeded.",
+      "type" : "SCRIPT",
+      "complete" : true,
+      "lastModified" : "2014-11-05T13:46:44.933+05:30",
+      "className" : "CassandraRunCommand",
+      "packageName" : "com.ca.cassandra",
+      "shellType" : "DEFAULT_OS",
+      "scripts" : [ {
+         "content" : "python cqlsh ${Host} ${Port} -u ${Username} -p ${Password} -f ${File} -k ${Keyspace}",
+         "envVariables" : [ {
+         } ],
+         "execDir" : "",
+         "name" : "CassandraRunCommand1415175404808.bat",
+         "osType" : "WINDOWS",
+         "overwriteOutput" : true,
+         "timeout" : 30,
+         "waitForProcess" : true
+      }, {
+         "content" : "cqlsh ${Host} ${Port} -u ${Username} -p ${Password} -f ${File} -k ${Keyspace}",
+         "envVariables" : [ {
+         } ],
+         "execDir" : "",
+         "name" : "CassandraRunCommand1415175404871.sh",
+         "osType" : "LINUX",
+         "overwriteOutput" : true,
+         "timeout" : 30,
+         "waitForProcess" : true
+      } ]
+   }
+}

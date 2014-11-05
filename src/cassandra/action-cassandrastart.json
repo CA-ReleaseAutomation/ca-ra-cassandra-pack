@@ -1,0 +1,66 @@
+{
+   "SCRIPTAction" : {
+      "actionPack" : {
+         "name" : "Cassandra",
+         "category" : "Cassandra",
+         "description" : "Integration actions for the Cassandra NoSQL database.",
+         "author" : "CA Technologies",
+         "dependencies" : "",
+         "platform" : "Windows and Linux",
+         "version" : "0.1  ",
+         "license" : "",
+         "imageLocation" : "http://localhost:8080/RDKServer/workingDirectory/ActionPacks/cassandra/cassandra.jpg",
+         "lastModified" : "2014-11-05T13:46:24.319+05:30",
+         "tags" : [ ],
+         "packageName" : "cassandra"
+      },
+      "name" : "Cassandra - Start",
+      "description" : "Start the Cassandra database server.",
+      "inputParamList" : [ {
+         "name" : "Working Directory",
+         "type" : "String",
+         "description" : "The working directory for Cassandra.  This should be the same directory in which Cassandra was installed.",
+         "required" : false,
+         "variableName" : "workingdirectory",
+         "arrayOption" : false
+      } ],
+      "outputParamList" : [ {
+         "name" : "Execution Output",
+         "type" : "String",
+         "description" : "Standard out from the command execution.",
+         "filterValue" : "[\\s\\S]*",
+         "filterType" : "REGEX",
+         "variableName" : "executionoutput",
+         "source" : "standardOut",
+         "arrayOption" : false
+      } ],
+      "successMessage" : "Cassandra was started successfully!",
+      "type" : "SCRIPT",
+      "complete" : true,
+      "lastModified" : "2014-11-05T13:46:45.308+05:30",
+      "className" : "CassandraStart",
+      "packageName" : "com.ca.cassandra",
+      "shellType" : "DEFAULT_OS",
+      "scripts" : [ {
+         "content" : "cassandra.bat",
+         "envVariables" : [ {
+         } ],
+         "execDir" : "${Working Directory}",
+         "name" : "CassandraStart1415175405198.bat",
+         "osType" : "WINDOWS",
+         "overwriteOutput" : true,
+         "timeout" : 3000,
+         "waitForProcess" : false
+      }, {
+         "content" : "sudo cassandra -f",
+         "envVariables" : [ {
+         } ],
+         "execDir" : "${Working Directory}",
+         "name" : "CassandraStart1415175405245.sh",
+         "osType" : "LINUX",
+         "overwriteOutput" : true,
+         "timeout" : 0,
+         "waitForProcess" : true
+      } ]
+   }
+}

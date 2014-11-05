@@ -1,0 +1,1 @@
+python cqlsh ${Host} ${Port} -u ${Username} -p ${Password} -f ${File} -k ${Keyspace}

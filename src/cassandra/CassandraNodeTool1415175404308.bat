@@ -1,0 +1,1 @@
+nodetool.bat -u ${Username} -pw ${Password} -h ${Host} -p ${Port} ${Command}

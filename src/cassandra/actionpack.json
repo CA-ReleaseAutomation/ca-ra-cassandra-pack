@@ -1,0 +1,16 @@
+{
+   "ActionPack" : {
+      "name" : "Cassandra",
+      "category" : "Cassandra",
+      "description" : "Integration actions for the Cassandra NoSQL database.",
+      "author" : "CA Technologies",
+      "dependencies" : "",
+      "platform" : "Windows and Linux",
+      "version" : "0.1 ",
+      "license" : "",
+      "imageLocation" : "http://localhost:8080/RDKServer/workingDirectory/ActionPacks/cassandra/cassandra.jpg",
+      "lastModified" : "2014-11-05T13:46:24.319+05:30",
+      "tags" : [ ],
+      "packageName" : "cassandra"
+   }
+}
